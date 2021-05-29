@@ -1,13 +1,21 @@
 body {
-  background: #12c2e9;
-  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+	background: #12c2e9;
+	background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+	background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
 main {
-  min-height: 80vh;
+	min-height: 80vh;
 }
 
 .mla {
-  margin-left: auto;
+	margin-left: auto;
+}
+
+h3 {
+	padding: 1rem 0;
+}
+
+.rating span {
+	margin: 0.1rem;
 }
