@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Product from '../components/Product'
-import products from '../products'
+
+import axios from 'axios'
 
 const HomeScreen = () => {
+	const [products, setProducts] = useState([])
+
+	useEffect(() => {
+		const getProducts = async () => {
+			const { data } = await axios.get('/api/products')
+			console.log(data)
+			setProducts(data)
+		}
+
+		getProducts()
+	}, [])
+
 	return (
 		<>
 			<h1>Latest Products</h1>
