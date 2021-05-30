@@ -1,0 +1,7 @@
+{
+  "prettier.proseWrap": "always",
+  "prettier.trailingComma": "none",
+  "prettier.useTabs": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.arrowParens": "avoid"
+}
