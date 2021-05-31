@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
-import { required } from 'yargs'
 
-const orderSchema = mongooose.Schema(
+const orderSchema = mongoose.Schema(
 	{
 		user: {
 			type: mongoose.Schema.Types.ObjectId,
