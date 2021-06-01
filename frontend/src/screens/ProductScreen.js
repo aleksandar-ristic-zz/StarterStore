@@ -53,8 +53,8 @@ const ProductScreen = ({ match, history }) => {
 								Price: <span className='h4'>${product.price}</span>
 							</ListGroup.Item>
 							<ListGroup.Item>
-								<span className='lead'>Description:</span>{' '}
-								<p className='text-weight-light'>{product.description}</p>
+								<span>Description:</span>{' '}
+								<p className='fw-light'>{product.description}</p>
 							</ListGroup.Item>
 						</ListGroup>
 					</Col>
