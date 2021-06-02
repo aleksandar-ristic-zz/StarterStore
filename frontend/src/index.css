@@ -1,3 +1,7 @@
+:root {
+	--primary-color: #e83283;
+}
+
 body {
 	background: #12c2e9;
 	background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
@@ -18,4 +22,8 @@ h3 {
 
 .rating span {
 	margin: 0.1rem;
+}
+
+button.btn-set:focus {
+	box-shadow: none !important;
 }

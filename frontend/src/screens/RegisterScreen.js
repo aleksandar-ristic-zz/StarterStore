@@ -18,7 +18,9 @@ const RegisterScreen = ({ location, history }) => {
 	const [message, setMessage] = useState(null)
 
 	const dispatch = useDispatch()
-	const { loading, error, userInfo } = useSelector(state => state.userRegister)
+	const { loading, error, userInfo, success } = useSelector(
+		state => state.userRegister
+	)
 
 	const redirect = location.search ? location.search.split('=')[1] : '/'
 
@@ -35,20 +37,16 @@ const RegisterScreen = ({ location, history }) => {
 			setMessage('Passwords do not match')
 		} else {
 			dispatch(register(name, email, password))
-			setMessage('Account registered successfully')
 		}
 	}
 
 	return (
 		<FormContainer>
 			<h1>Sign Up</h1>
+			{message && <Message variant='danger'>{message}</Message>}
 			{error && <Message variant='danger'>{error}</Message>}
-			{!error && message && (
-				<Message
-					variant={message.startsWith('Passwords') ? 'danger' : 'success'}
-				>
-					{message}
-				</Message>
+			{success && (
+				<Message variant='success'>Profile created successfully</Message>
 			)}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
