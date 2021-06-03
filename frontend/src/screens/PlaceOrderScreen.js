@@ -40,9 +40,9 @@ const PlaceOrderScreen = ({ history }) => {
 
 	useEffect(() => {
 		if (success) {
-			history.pushState(`/order/${order._id}`)
-			// eslint-disable-next-line
+			history.push(`/order/${order._id}`)
 		}
+		// eslint-disable-next-line
 	}, [history, success])
 
 	const placeOrderHandler = () => {
@@ -151,6 +151,13 @@ const PlaceOrderScreen = ({ history }) => {
 							</ListGroup.Item>
 
 							<ListGroup.Item>
+								{error && <Message variant='danger'>{error}</Message>}
+								{success && (
+									<Message variant='success'>{'Ready to place order'}</Message>
+								)}
+							</ListGroup.Item>
+
+							<ListGroup.Item>
 								<Row>
 									<Button
 										type='button'
@@ -158,7 +165,7 @@ const PlaceOrderScreen = ({ history }) => {
 										disabled={cartItems === 0}
 										onClick={placeOrderHandler}
 									>
-										ORDER NOW
+										PLACE ORDER
 									</Button>
 								</Row>
 							</ListGroup.Item>
