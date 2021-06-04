@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Table } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, userUpdateProfile } from '../actions/userActions'
+
+import { listMyOrders } from '../actions/orderActions'
 
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -23,6 +25,12 @@ const ProfileScreen = ({ location, history }) => {
 
 	const { success } = useSelector(state => state.userUpdateProfile)
 
+	const {
+		loading: loadingOrders,
+		error: errorOrders,
+		orders
+	} = useSelector(state => state.orderListUser)
+
 	const redirect = location.search ? location.search.split('=')[1] : '/'
 
 	useEffect(() => {
@@ -31,6 +39,7 @@ const ProfileScreen = ({ location, history }) => {
 		} else {
 			if (!user.name) {
 				dispatch(getUserDetails('profile'))
+				dispatch(listMyOrders())
 			} else {
 				setName(user.name)
 				setEmail(user.email)
@@ -106,6 +115,54 @@ const ProfileScreen = ({ location, history }) => {
 			</Col>
 			<Col md={9}>
 				<h2>My Orders</h2>
+				{loadingOrders ? (
+					<Loader />
+				) : errorOrders ? (
+					<Message variant='danger' />
+				) : (
+					<Table striped bordered hover responsive className='table-sm'>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>DATE</th>
+								<th>TOTAL</th>
+								<th>PAID</th>
+								<th>DELIVERED</th>
+							</tr>
+						</thead>
+						<tbody>
+							{orders.map(order => (
+								<tr key={order._id}>
+									<td>{order._id}</td>
+									<td>{order.createdAt.substring(0, 10)}</td>
+									<td>{order.totalPrice}</td>
+									<td>
+										{order.isPaid ? (
+											order.paidAt.substring(0, 10)
+										) : (
+											<i className='fas fa-times text-primary'></i>
+										)}
+									</td>
+									<td className='text-center'>
+										{order.isDelivered ? (
+											order.deliveredAt.substring(0, 10)
+										) : (
+											<i className='fas fa-times text-primary'></i>
+										)}
+									</td>
+									<td className='text-center'>
+										<LinkContainer
+											to={`/order/${order._id}`}
+											style={{ cursor: 'pointer' }}
+										>
+											<i className='fas fa-eye text-info'></i>
+										</LinkContainer>
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
+				)}
 			</Col>
 		</Row>
 	)
