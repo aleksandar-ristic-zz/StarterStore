@@ -37,7 +37,7 @@ const Header = () => {
 										</NavDropdown.Item>
 									</LinkContainer>
 									<NavDropdown.Item onClick={logoutHandler}>
-										<i className='fas fa-sign-out-alt'></i> Logout
+										<i className='fas fa-sign-out-alt text-danger'></i> Logout
 									</NavDropdown.Item>
 								</NavDropdown>
 							) : (
@@ -46,6 +46,25 @@ const Header = () => {
 										<i className='fas fa-user'></i> Sign In
 									</Nav.Link>
 								</LinkContainer>
+							)}
+							{userInfo && userInfo.isAdmin && (
+								<NavDropdown title='Admin' id='adminmenu'>
+									<LinkContainer to='admin/userlist'>
+										<NavDropdown.Item>
+											<i className='fas fa-users'></i> Users
+										</NavDropdown.Item>
+									</LinkContainer>
+									<LinkContainer to='admin/productlist'>
+										<NavDropdown.Item>
+											<i className='fas fa-store text-warning'></i> Products
+										</NavDropdown.Item>
+									</LinkContainer>
+									<LinkContainer to='admin/orderlist'>
+										<NavDropdown.Item>
+											<i className='fas fa-gifts text-info'></i> Orders
+										</NavDropdown.Item>
+									</LinkContainer>
+								</NavDropdown>
 							)}
 						</Nav>
 					</Navbar.Collapse>
