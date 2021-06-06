@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap'
 import { logout } from '../actions/userActions'
+import logo from './logo.svg'
 
 const Header = () => {
 	const dispatch = useDispatch()
@@ -20,7 +21,7 @@ const Header = () => {
 				<Container>
 					<LinkContainer to='/'>
 						<Navbar.Brand>
-							<Image src='./images/logo.svg' />
+							<Image src={logo} />
 						</Navbar.Brand>
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />

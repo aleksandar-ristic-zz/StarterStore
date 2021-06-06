@@ -27,3 +27,7 @@ h3 {
 button.btn-set:focus {
 	box-shadow: none !important;
 }
+
+.text-right {
+	text-align: right;
+}
