@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap'
 import { logout } from '../actions/userActions'
 
 const Header = () => {
@@ -19,7 +19,9 @@ const Header = () => {
 			<Navbar bg='secondary' variant='secondary' expand='lg' collapseOnSelect>
 				<Container>
 					<LinkContainer to='/'>
-						<Navbar.Brand>Starter Store</Navbar.Brand>
+						<Navbar.Brand>
+							<Image src='./images/logo.svg' />
+						</Navbar.Brand>
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
@@ -49,17 +51,17 @@ const Header = () => {
 							)}
 							{userInfo && userInfo.isAdmin && (
 								<NavDropdown title='Admin' id='adminmenu'>
-									<LinkContainer to='admin/userlist'>
+									<LinkContainer to='/admin/userlist'>
 										<NavDropdown.Item>
 											<i className='fas fa-users'></i> Users
 										</NavDropdown.Item>
 									</LinkContainer>
-									<LinkContainer to='admin/productlist'>
+									<LinkContainer to='/admin/productlist'>
 										<NavDropdown.Item>
 											<i className='fas fa-store text-warning'></i> Products
 										</NavDropdown.Item>
 									</LinkContainer>
-									<LinkContainer to='admin/orderlist'>
+									<LinkContainer to='/admin/orderlist'>
 										<NavDropdown.Item>
 											<i className='fas fa-gifts text-info'></i> Orders
 										</NavDropdown.Item>
