@@ -51,46 +51,54 @@ const RegisterScreen = ({ location, history }) => {
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group>
-					<Form.Label>Your Name</Form.Label>
-					<Form.Control
-						type='text'
-						placeholder='Enter Your Name'
-						value={name}
-						onChange={e => setName(e.target.value)}
-					></Form.Control>
+					<div className='form-floating mb-2'>
+						<Form.Control
+							type='text'
+							placeholder='Enter Your Name'
+							value={name}
+							onChange={e => setName(e.target.value)}
+						></Form.Control>
+						<Form.Label>Your Name Here</Form.Label>
+					</div>
 				</Form.Group>
 
 				<Form.Group>
-					<Form.Label>Email Address</Form.Label>
-					<Form.Control
-						type='email'
-						placeholder='Enter Email'
-						value={email}
-						onChange={e => setEmail(e.target.value)}
-					></Form.Control>
+					<div className='form-floating mb-4'>
+						<Form.Control
+							type='email'
+							placeholder='Enter Email'
+							value={email}
+							onChange={e => setEmail(e.target.value)}
+						></Form.Control>
+						<Form.Label>Your Email Here</Form.Label>
+					</div>
 				</Form.Group>
 
 				<Form.Group controlId='password'>
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type='password'
-						placeholder='Enter password'
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-					></Form.Control>
+					<div className='form-floating mb-2'>
+						<Form.Control
+							type='password'
+							placeholder='Enter password'
+							value={password}
+							onChange={e => setPassword(e.target.value)}
+						></Form.Control>
+						<Form.Label>Write Password</Form.Label>
+					</div>
 				</Form.Group>
 
 				<Form.Group controlId='confirmPassword'>
-					<Form.Label>Confirm Password</Form.Label>
-					<Form.Control
-						type='password'
-						placeholder='Repeat password'
-						value={confirmPassword}
-						onChange={e => setConfirmPassword(e.target.value)}
-					></Form.Control>
+					<div className='form-floating mb-2'>
+						<Form.Control
+							type='password'
+							placeholder='Repeat password'
+							value={confirmPassword}
+							onChange={e => setConfirmPassword(e.target.value)}
+						></Form.Control>
+						<Form.Label>Confirm Password</Form.Label>
+					</div>
 				</Form.Group>
 
-				<Button className='mt-2' type='submit' variant='primary'>
+				<Button type='submit' variant='primary'>
 					SIGN UP
 				</Button>
 			</Form>

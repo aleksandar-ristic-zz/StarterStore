@@ -38,23 +38,28 @@ const LoginScreen = ({ location, history }) => {
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group>
-					<Form.Label>Email Address</Form.Label>
-					<Form.Control
-						type='email'
-						placeholder='Enter Email'
-						value={email}
-						onChange={e => setEmail(e.target.value)}
-					></Form.Control>
+					<div className='form-floating mb-2'>
+						<Form.Control
+							type='email'
+							id='emailInput'
+							placeholder='Enter Email'
+							value={email}
+							onChange={e => setEmail(e.target.value)}
+						></Form.Control>
+						<Form.Label for='emailInput'>Enter Email</Form.Label>
+					</div>
 				</Form.Group>
 
 				<Form.Group>
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type='password'
-						placeholder='Enter password'
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-					></Form.Control>
+					<div className='form-floating'>
+						<Form.Control
+							type='password'
+							placeholder='Enter password'
+							value={password}
+							onChange={e => setPassword(e.target.value)}
+						></Form.Control>
+						<Form.Label>Enter Password</Form.Label>
+					</div>
 				</Form.Group>
 
 				<Button className='mt-2' type='submit' variant='primary'>

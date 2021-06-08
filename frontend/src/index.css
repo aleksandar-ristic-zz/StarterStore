@@ -41,3 +41,34 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
 	-moz-appearance: textfield;
 }
+
+/* *** Carousel *** */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+	display: flex;
+}
+.carousel-caption {
+	position: absolute;
+	bottom: -2rem;
+}
+
+.carousel img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.carousel a {
+	margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+	.carousel-caption h3 {
+		font-size: 2.5vw;
+	}
+
+	.carousel-caption h5 {
+		font-size: 2.2vw;
+	}
+}
