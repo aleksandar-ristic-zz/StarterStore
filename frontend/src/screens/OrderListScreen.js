@@ -54,7 +54,7 @@ const OrderListScreen = ({ history }) => {
 								<td className='text-center'>
 									{order.isPaid ? (
 										<span className='text-info'>
-											order.paiAt.substring(0, 10)
+											{order.paidAt.substring(0, 10)}
 										</span>
 									) : (
 										<i className='fas fa-times text-primary'></i>
@@ -63,7 +63,7 @@ const OrderListScreen = ({ history }) => {
 								<td className='text-center'>
 									{order.isDelivered ? (
 										<span className='text-info'>
-											order.deliveredAt.substring(0, 10)
+											{order.deliveredAt.substring(0, 10)}
 										</span>
 									) : (
 										<i className='fas fa-times text-primary'></i>

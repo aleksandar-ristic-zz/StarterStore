@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
+import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap'
+import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
 
 const Header = () => {
@@ -16,7 +18,7 @@ const Header = () => {
 
 	return (
 		<header>
-			<Navbar bg='secondary' variant='secondary' expand='lg' collapseOnSelect>
+			<Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
 				<Container>
 					<LinkContainer to='/'>
 						<Navbar.Brand>
@@ -25,6 +27,7 @@ const Header = () => {
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
+						<Route render={({ history }) => <SearchBox history={history} />} />
 						<Nav className='mla'>
 							<LinkContainer to='/cart'>
 								<Nav.Link>
