@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Carousel, Image } from 'react-bootstrap'
+import { Carousel, Image, Button } from 'react-bootstrap'
 
 import Loader from './Loader'
 import Message from './Message'
@@ -30,8 +30,11 @@ const ProductCarousel = () => {
 					<Link to={`/product/${product._id}`}>
 						<Image src={product.image} alt={product.name} fluid />
 						<Carousel.Caption className='carousel-caption'>
-							<h5 className='text-primary'>{product.name}</h5>
-							<h3 className='text-primary'>${product.price}</h3>
+							<h5 className='text-primary fromUp'>{product.name}</h5>
+							<h3 className='text-primary fromLeft'>${product.price}</h3>
+							<Button variant='outline-primary fromDown'>
+								Product details...
+							</Button>
 						</Carousel.Caption>
 					</Link>
 				</Carousel.Item>

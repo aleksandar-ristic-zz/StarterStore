@@ -65,29 +65,29 @@ const PlaceOrderScreen = ({ history }) => {
 			<Row>
 				<Col md={8}>
 					<ListGroup variant='flush'>
-						<ListGroup.Item>
+						<ListGroup.Item className='text-light'>
 							<h2>Shipping</h2>
 							<p>
 								<strong>Address: </strong>
-								{`${shippingAddress.address}, ${shippingAddress.postalCode}
-								${shippingAddress.city}, ${shippingAddress.country}`}
+								<span className='lead'>{`${shippingAddress.address}, ${shippingAddress.postalCode}
+								${shippingAddress.city}, ${shippingAddress.country}`}</span>
 							</p>
 						</ListGroup.Item>
 
-						<ListGroup.Item>
+						<ListGroup.Item className='text-light'>
 							<h2>Payment Method</h2>
 							<strong>Method: </strong>
-							{paymentMethod}
+							<span className='lead'>{paymentMethod}</span>
 						</ListGroup.Item>
 
-						<ListGroup.Item>
-							<h2>Order Items</h2>
+						<ListGroup.Item className='text-light'>
+							<h2 className='mb-2'>Order Items</h2>
 							{cartItems.lenght === 0 ? (
 								<Message>Your cart is empty</Message>
 							) : (
 								<ListGroup variant='flush'>
 									{cartItems.map((item, index) => (
-										<ListGroup.Item key={index}>
+										<ListGroup.Item className='text-light' key={index}>
 											<Row>
 												<Col md={1}>
 													<Image
@@ -116,18 +116,18 @@ const PlaceOrderScreen = ({ history }) => {
 				<Col md={4}>
 					<Card>
 						<ListGroup variant='flush'>
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<h2>Order Summary</h2>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
 									<Col>Items</Col>
 									<Col>${itemsPrice}</Col>
 								</Row>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
 									<Col>
 										Shipping<span className='text-muted'>*</span>{' '}
@@ -136,17 +136,18 @@ const PlaceOrderScreen = ({ history }) => {
 								</Row>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
 									<Col>Tax</Col>
 									<Col>${taxPrice}</Col>
 								</Row>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
+									<hr />
 									<Col>Total</Col>
-									<Col>${totalPrice}</Col>
+									<Col className='text-primary fw-bold'>${totalPrice}</Col>
 								</Row>
 							</ListGroup.Item>
 

@@ -103,19 +103,22 @@ const OrderScreen = ({ match, history }) => {
 		<Message variant='danger'>{error}</Message>
 	) : (
 		<>
-			<h1>Order {order._id}</h1>
+			<h1 className='mb-2'>Order {order._id}</h1>
 
 			<Row>
 				<Col md={8}>
 					<ListGroup variant='flush'>
-						<ListGroup.Item>
+						<ListGroup.Item className='text-light'>
 							<h2>Shipping</h2>
 							<p>
-								<strong>Name:</strong> {order.user.name}
+								<strong>Name:</strong>{' '}
+								<span className='lead'> {order.user.name}</span>
 							</p>
 							<p>
 								<strong>Email:</strong>{' '}
-								<a href={`mailto:${order.user.email}`}>{order.user.email}</a>
+								<a className='text-primary' href={`mailto:${order.user.email}`}>
+									{order.user.email}
+								</a>
 							</p>
 							<p>
 								<strong>Address: </strong>
@@ -131,11 +134,11 @@ const OrderScreen = ({ match, history }) => {
 							<hr />
 						</ListGroup.Item>
 
-						<ListGroup.Item>
+						<ListGroup.Item className='text-light'>
 							<h2>Payment Method</h2>
 							<p>
 								<strong>Method: </strong>
-								{order.paymentMethod}
+								<span className='lead'>{order.paymentMethod}</span>
 							</p>
 							{order.isPaid ? (
 								<Alert variant='info'>Paid on {order.paidAt}</Alert>
@@ -146,7 +149,7 @@ const OrderScreen = ({ match, history }) => {
 							<hr />
 						</ListGroup.Item>
 
-						<ListGroup.Item>
+						<ListGroup.Item className='text-light'>
 							<h2>Order Items</h2>
 							{order.orderItems.lenght === 0 ? (
 								<Message>Your order is empty</Message>
@@ -168,7 +171,7 @@ const OrderScreen = ({ match, history }) => {
 														{item.name}
 													</Link>
 												</Col>
-												<Col md={4}>
+												<Col className='text-light' md={4}>
 													{item.qty} x ${item.price} = ${item.qty * item.price}
 												</Col>
 											</Row>
@@ -182,18 +185,18 @@ const OrderScreen = ({ match, history }) => {
 				<Col md={4}>
 					<Card>
 						<ListGroup variant='flush'>
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<h2>Order Summary</h2>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
 									<Col>Items</Col>
 									<Col>${order.itemsPrice}</Col>
 								</Row>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
 									<Col>
 										Shipping<span className='text-muted'>*</span>
@@ -202,17 +205,20 @@ const OrderScreen = ({ match, history }) => {
 								</Row>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
 									<Col>Tax</Col>
 									<Col>${order.taxPrice}</Col>
 								</Row>
 							</ListGroup.Item>
 
-							<ListGroup.Item>
+							<ListGroup.Item className='text-light'>
 								<Row>
+									<hr />
 									<Col>Total</Col>
-									<Col>${order.totalPrice}</Col>
+									<Col className='text-primary fw-bold'>
+										${order.totalPrice}
+									</Col>
 								</Row>
 							</ListGroup.Item>
 							{!order.isPaid && (

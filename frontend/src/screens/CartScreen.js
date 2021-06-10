@@ -31,7 +31,7 @@ const CartScreen = ({ match, history, location }) => {
 	return (
 		<Row>
 			<Col md={8}>
-				<h1>Shopping Cart</h1>
+				<h1 className='mb-2'>Shopping Cart</h1>
 				{cartItems.length === 0 ? (
 					<Message>
 						Your cart is empty.{' '}
@@ -40,9 +40,9 @@ const CartScreen = ({ match, history, location }) => {
 						</Link>
 					</Message>
 				) : (
-					<ListGroup variant='secondary'>
+					<ListGroup variant='flush'>
 						{cartItems.map(item => (
-							<ListGroup.Item key={item.product}>
+							<ListGroup.Item className='text-light' key={item.product}>
 								<Row>
 									<Col md={2}>
 										<Image src={item.image} alt={item.name} fluid rounded />
@@ -76,7 +76,7 @@ const CartScreen = ({ match, history, location }) => {
 											variant='none'
 											onClick={() => removeFromCartHandler(item.product)}
 										>
-											<i className='fas fa-trash text-warning'></i>
+											<i className='fas fa-trash text-primary'></i>
 										</Button>
 									</Col>
 								</Row>
@@ -88,16 +88,16 @@ const CartScreen = ({ match, history, location }) => {
 			<Col md={4}>
 				<Card>
 					<ListGroup variant='flush'>
-						<ListGroup.Item>
+						<ListGroup.Item className='text-light'>
 							<Row>
 								<h3 className='fw-light'>
 									Subtotal{' '}
-									<span className='text-danger fw-bold'>
+									<span className='text-info fw-bold'>
 										{cartItems.reduce((acc, item) => acc + item.qty, 0)}
 									</span>{' '}
 									items
 								</h3>
-								<h4>
+								<h4 className='text-primary'>
 									$
 									{cartItems
 										.reduce((acc, item) => acc + item.qty * item.price, 0)

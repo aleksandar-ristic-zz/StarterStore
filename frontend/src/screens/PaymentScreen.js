@@ -27,7 +27,7 @@ const PaymentScreen = ({ history }) => {
 	return (
 		<FormContainer>
 			<CheckoutSteps step1 step2 step3 />
-			<h1>Payment Method</h1>
+			<h1 className='mb-4'>Payment Method</h1>
 			<Form onSubmit={submitHandler}>
 				<Form.Group>
 					<Form.Label className='text-info h4'>Please select one:</Form.Label>
@@ -49,6 +49,8 @@ const PaymentScreen = ({ history }) => {
 						id='Stripe'
 						name='paymentMethod'
 						value='Stripe'
+						title='Will be coming soon...'
+						disabled
 						onChange={e => setPaymentMethod(e.target.value)}
 					></Form.Check>
 				</Col>

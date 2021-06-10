@@ -50,7 +50,7 @@ input[type='number'] {
 }
 .carousel-caption {
 	position: absolute;
-	bottom: -2rem;
+	bottom: 0;
 }
 
 .carousel img {
@@ -70,5 +70,47 @@ input[type='number'] {
 
 	.carousel-caption h5 {
 		font-size: 2.2vw;
+		animation: name duration timing-function delay iteration-count direction
+			fill-mode;
+	}
+}
+
+.carousel-item h5 {
+	transform: translateY(-33vh);
+}
+.carousel-item h3 {
+	transform: translateX(80%);
+}
+.carousel-item button {
+	transform: translateY(150%);
+}
+
+.carousel-item.active h5 {
+	animation: fromUp 1s ease-in 1s forwards;
+}
+
+.carousel-item.active h3 {
+	animation: fromLeft 1s ease-in 1.5s forwards;
+}
+
+.carousel-item.active button {
+	animation: fromDown 1s ease-in 2s forwards;
+}
+
+@keyframes fromUp {
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes fromLeft {
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes fromDown {
+	to {
+		transform: translateY(0);
 	}
 }

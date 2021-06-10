@@ -97,7 +97,7 @@ const ProductScreen = ({ match, history }) => {
 								<ListGroup variant='flush'>
 									<ListGroup.Item>
 										<Row>
-											<Col>Price:</Col>
+											<Col className='text-light'>Price:</Col>
 											<Col>
 												<strong className='text-primary'>
 													${product.price}
@@ -108,7 +108,7 @@ const ProductScreen = ({ match, history }) => {
 
 									<ListGroup.Item>
 										<Row>
-											<Col>Status:</Col>
+											<Col className='text-light'>Status:</Col>
 											<Col>
 												{product.countInStock > 0 ? (
 													<i className='fas fa-check text-info'></i>
@@ -122,7 +122,7 @@ const ProductScreen = ({ match, history }) => {
 									{product.countInStock > 0 && (
 										<ListGroup.Item>
 											<Row>
-												<Col>Quantity:</Col>
+												<Col className='text-light'>Quantity:</Col>
 												<Col>
 													<Form.Control
 														as='select'
